@@ -3,20 +3,20 @@ services:
   app:
     build: .
     ports:
-      - '3000:3000'
+      - '3000:3000'  # Map host port 3000 to container port 3000
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/app  # Mount current directory to /usr/src/app in container
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=development  # Set environment to development
     depends_on:
-      - mongo
+      - mongo  # Ensure mongo service is started before app service
 
   mongo:
     image: mongo
     ports:
-      - '27017:27017'
+      - '27017:27017'  # Map host port 27017 to container port 27017
     volumes:
-      - mongo_data:/data/db
+      - mongo_data:/data/db  # Use named volume for mongo data persistence
 
 volumes:
-  mongo_data:
+  mongo_data:  # Define a named volume for MongoDB
