@@ -14,5 +14,6 @@ COPY . .
 
 # Mở cổng 3000 để ứng dụng có thể truy cập từ bên ngoài
 EXPOSE 3000
+
 # Chạy lệnh npm start để khởi động ứng dụng
 CMD [ "npm", "start" ]
